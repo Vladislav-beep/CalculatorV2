@@ -166,6 +166,9 @@
                                         <rect key="frame" x="240.5" y="367.5" width="78.5" height="90.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="="/>
+                                        <connections>
+                                            <action selector="equalitySighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y8i-3F-CWk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

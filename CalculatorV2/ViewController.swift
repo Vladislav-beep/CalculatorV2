@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     var stillTyping = false
     var firstOperand: Double = 0
+    var secondOperand: Double = 0
+    var operationSighn = ""
     var currentInput: Double {
         get {
             return Double(displayResultLabel.text!)!
@@ -38,29 +40,37 @@ class ViewController: UIViewController {
     
     
     @IBAction func operandSighnPressed(_ sender: UIButton) {
+        operationSighn = sender.currentTitle!
         firstOperand = currentInput
         stillTyping = false
     }
     
     
+    func operateWithTwoOperands(operation: (Double,Double) -> Double) {
+       currentInput = operation(firstOperand, secondOperand)
+        stillTyping = false
+    }
+    @IBAction func equalitySighnPressed(_ sender: UIButton) {
+        
+        if stillTyping {
+            secondOperand = currentInput
+        }
+        switch operationSighn {
+        case "+":
+            operateWithTwoOperands{$0 + $1}
+        case "-":
+            operateWithTwoOperands{$0 - $1}
+        case "×":
+            operateWithTwoOperands{$0 * $1}
+        case "÷":
+            operateWithTwoOperands{$0 / $1}
+        default:
+            break
+        }
+    }
+    
+    
     }
     
     
     
-    
-    
-    
-
-
-/* let number = sender.currentTitle!
-if stillTyping {
-    if displayResultLabel.text!.count < 20 {
-        displayResultLabel.text = displayResultLabel.text! + number
-    } else {
-        displayResultLabel.text = number
-        stillTyping = true
-    }
-
-}
-*/
-
