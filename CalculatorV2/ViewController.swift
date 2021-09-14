@@ -70,7 +70,29 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func clearButtonPressed(_ sender: UIButton) {
+        firstOperand = 0
+        secondOperand = 0
+        currentInput = 0
+        displayResultLabel.text = "0"
+        stillTyping = false
+        operationSighn = ""
     }
+    
+    @IBAction func plusMinusButtonPressed(_ sender: UIButton) {
+        currentInput = -currentInput
+    }
+    
+    
+    @IBAction func persantageButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func squareRootButtonPressed(_ sender: UIButton) {
+        currentInput = sqrt(currentInput)
+    }
+    @IBAction func dotButtonPressed(_ sender: UIButton) {
+    }
+}
     
     
     
