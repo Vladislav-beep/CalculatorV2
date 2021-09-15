@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var stillTyping = false
+    var dotIsPlaced = false
     var firstOperand: Double = 0
     var secondOperand: Double = 0
     var operationSighn = ""
@@ -18,7 +19,14 @@ class ViewController: UIViewController {
             return Double(displayResultLabel.text!)!
         }
         set {
-            displayResultLabel.text = "\(newValue)"
+            let value = "\(newValue)"
+            let valueArray = value.components(separatedBy: ".")
+            if valueArray[1] == "0" {
+                displayResultLabel.text = "\(valueArray[0])"
+            } else {
+                displayResultLabel.text = "\(newValue)"
+            }
+            
             stillTyping = false
         }
     }
@@ -29,6 +37,7 @@ class ViewController: UIViewController {
         
         let number = sender.currentTitle!
         
+        if displayResultLabel.text!.count < 20 {
        if stillTyping {
                 displayResultLabel.text = displayResultLabel.text! + number
           } else {
@@ -37,7 +46,7 @@ class ViewController: UIViewController {
            }
 
         }
-    
+    }
     
     @IBAction func operandSighnPressed(_ sender: UIButton) {
         operationSighn = sender.currentTitle!
@@ -49,12 +58,15 @@ class ViewController: UIViewController {
     func operateWithTwoOperands(operation: (Double,Double) -> Double) {
        currentInput = operation(firstOperand, secondOperand)
         stillTyping = false
+        dotIsPlaced = false
     }
     @IBAction func equalitySighnPressed(_ sender: UIButton) {
         
         if stillTyping {
             secondOperand = currentInput
         }
+        dotIsPlaced = false
+        
         switch operationSighn {
         case "+":
             operateWithTwoOperands{$0 + $1}
@@ -76,6 +88,7 @@ class ViewController: UIViewController {
         currentInput = 0
         displayResultLabel.text = "0"
         stillTyping = false
+        dotIsPlaced = false
         operationSighn = ""
     }
     
@@ -85,12 +98,24 @@ class ViewController: UIViewController {
     
     
     @IBAction func persantageButtonPressed(_ sender: UIButton) {
+        if firstOperand == 0 {
+            currentInput = currentInput / 100
+        } else {
+            secondOperand = firstOperand * currentInput / 100
+        }
     }
     
     @IBAction func squareRootButtonPressed(_ sender: UIButton) {
         currentInput = sqrt(currentInput)
     }
     @IBAction func dotButtonPressed(_ sender: UIButton) {
+        if stillTyping && !dotIsPlaced {
+            displayResultLabel.text = displayResultLabel.text! + "."
+            dotIsPlaced = true
+        } else if !stillTyping && !dotIsPlaced {
+            displayResultLabel.text = "0."
+            
+        }
     }
 }
     

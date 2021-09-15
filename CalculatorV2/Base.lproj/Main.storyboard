@@ -54,6 +54,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="+"/>
                                         <connections>
+                                            <action selector="equalitySighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OsZ-f1-8HC"/>
                                             <action selector="operandSighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r9h-WS-SPg"/>
                                         </connections>
                                     </button>
@@ -86,6 +87,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="-"/>
                                         <connections>
+                                            <action selector="equalitySighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NsP-2g-UHz"/>
                                             <action selector="operandSighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q9Q-H3-Cp2"/>
                                         </connections>
                                     </button>
@@ -118,6 +120,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="×"/>
                                         <connections>
+                                            <action selector="equalitySighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="anl-fb-j0o"/>
                                             <action selector="operandSighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BM3-Qq-lXf"/>
                                         </connections>
                                     </button>
@@ -150,6 +153,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="÷"/>
                                         <connections>
+                                            <action selector="equalitySighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yiA-JZ-WKN"/>
                                             <action selector="operandSighnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xgn-h4-7q4"/>
                                         </connections>
                                     </button>
